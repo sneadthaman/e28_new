@@ -1,7 +1,6 @@
 Vue.component('round-detail', {
     data() {
         return {
-            
         }
     },
     props: {
@@ -56,12 +55,24 @@ const app = new Vue({
         getRandomNumber() {
             return Math.floor(Math.random() * 10) + 1;
         },
+
+        // Clears the input field and resets the game instance but not the entire game
         reset() {
             this.choice = '';
             this.randomNumber = this.getRandomNumber();
             this.feedback = false;
+        },
+
+        // Resets the entire game and deletes all game history
+        resetGame() {
+            this.reset();
+            this.rounds = [];
+            this.round = 0;
+            this.playerScore = 0;
+            this.compScore = 0;
         }
     },
+    // Sets a random number for the dealer upon page load
     mounted() {
         this.randomNumber = this.getRandomNumber();
     }

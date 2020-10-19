@@ -16,4 +16,10 @@ html {
 
 .winner {
     background-color: green;
+    color: white;
+}
+
+.loser {
+    background-color: red;
+    color: white;
 }

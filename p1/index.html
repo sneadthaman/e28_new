@@ -22,7 +22,7 @@
 
         <script type='text/x-template'
             id='round-detail'>
-        <div v-bind:class="{ winner : winner == 'Player'}">
+        <div :class="{ winner : winner == 'Player', loser : winner == 'Dealer'}">
             <ul>
                 <li>Round #: {{ number }}</li>
                 <li>Winner: {{ winner }}</li>
@@ -46,6 +46,7 @@
                         <p v-if='playerWon'>You Won</p>
                         <p v-else>You Lost</p>
                         <button id='play-again' @click='reset'>Play again</button>
+                        <button id='reset-game' @click='resetGame'>Reset Game</button>
                     </div>
                     <div v-if='rounds.length !== 0'>
                         <round-detail v-for='x in rounds'
@@ -58,7 +59,6 @@
                             <template #actual>The correct number was {{ x.actual }}</template>
                         </round-detail>
                     </div>
-                    
                 </div>
                 
             </div>
