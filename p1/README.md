@@ -1,6 +1,6 @@
 # Project 1
 - By: Sam Janvey
-- Production URL: <http://e28p1.samjanvey.com(http://e28p1.samjanvey.com>
+- Production URL: <http://e28p1.samjanvey.com>
 
 ## Outside Resources
 Image of the card dealer is from the movie Vegas Vacation and was pulled from <http://www.aveleyman.com/Gallery/2017/M/36721-28453.jpg>.
