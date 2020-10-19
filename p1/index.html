@@ -18,6 +18,20 @@
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
+
+
+        <script type='text/x-template'
+            id='round-detail'>
+        <div v-bind:class="{ winner : winner == 'Player'}">
+            <ul>
+                <li>Round #: {{ number }}</li>
+                <li>Winner: {{ winner }}</li>
+                <li><slot name='choice'></slot></li>
+                <li><slot name='actual'></slot></li>
+            </ul>
+        </div>
+        </script>
+
         <div id='app' v-cloak>
             <div class="container">
                 <h1>Welcome To Sam's Casino</h1>
@@ -33,7 +47,20 @@
                         <p v-else>You Lost</p>
                         <button id='play-again' @click='reset'>Play again</button>
                     </div>
+                    <div v-if='rounds.length !== 0'>
+                        <round-detail v-for='x in rounds'
+                        :number='x.number'
+                        :winner='x.winner'
+                        :key='x.number'>
+  
+                            <template #choice>You chose {{ x.choice }}</template>
+    
+                            <template #actual>The correct number was {{ x.actual }}</template>
+                        </round-detail>
+                    </div>
+                    
                 </div>
+                
             </div>
         </div>
     </body>

@@ -13,3 +13,7 @@ html {
 .container {
     margin: 0 auto;
 }
+
+.winner {
+    background-color: green;
+}
