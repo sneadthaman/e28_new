@@ -10,13 +10,31 @@
         <title>Sam Janvey | Project 1 | Vue.js Game</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="./style.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="./game.js" async defer></script>
     </head>
     <body>
         <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-        
-        <script src="" async defer></script>
+        <div id='app' v-cloak>
+            <div class="container">
+                <h1>Welcome To Sam's Casino</h1>
+                <div id="dealer">
+                    <img src="./images/pickAnumber.jpg" alt="Angsty Card Dealer">
+                </div>
+                <h1>Let's Play</h1>
+                <div class="game">
+                    <label>Pick a number between 1 and 10: <input type="number" min=1 max=10 v-model.number='choice'></label>
+                    <button id="guess-btn" @click='guess'>Guess</button>
+                    <div class="feedback" v-if='feedback'>
+                        <p v-if='playerWon'>You Won</p>
+                        <p v-else>You Lost</p>
+                        <button id='play-again' @click='reset'>Play again</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </body>
 </html>
