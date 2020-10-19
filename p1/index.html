@@ -22,7 +22,7 @@
 
         <script type='text/x-template'
             id='round-detail'>
-        <div :class="{ winner : winner == 'Player', loser : winner == 'Dealer'}">
+        <div :class="{ winner : winner == 'Player', loser : winner == 'Dealer'}" class="round-detail">
             <ul>
                 <li>Round #: {{ number }}</li>
                 <li>Winner: {{ winner }}</li>
@@ -40,8 +40,12 @@
                 </div>
                 <h1>Let's Play</h1>
                 <div class="game">
-                    <label>Pick a number between 1 and 10: <input type="number" min=1 max=10 v-model.number='choice'></label>
+                    <label>Pick a number between 1 and 10: <input type="number" min=1 max=10 v-model.number='choice' @keyup.enter='guess'></label>
                     <button id="guess-btn" @click='guess'>Guess</button>
+                    <div class="score-board">
+                        <span>Dealer: {{ compScore }}</span>
+                        <span>Player: {{ playerScore }}</span>
+                    </div>
                     <div class="feedback" v-if='feedback'>
                         <p v-if='playerWon'>You Won</p>
                         <p v-else>You Lost</p>
@@ -59,8 +63,7 @@
                             <template #actual>The correct number was {{ x.actual }}</template>
                         </round-detail>
                     </div>
-                </div>
-                
+                </div>       
             </div>
         </div>
     </body>

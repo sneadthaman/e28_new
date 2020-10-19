@@ -4,6 +4,12 @@ html {
   *, *:before, *:after {
     box-sizing: inherit;
 }
+
+body {
+    font-family: 'Verdana', sans-serif;
+    font-size: 16px;
+    background-color: lightgray;
+}
   
 
 [v-cloak] {
@@ -11,7 +17,13 @@ html {
 }
 
 .container {
+    background-color: white;
+    width: 65%;
     margin: 0 auto;
+    text-align: center;
+    border-radius: 5px;
+    padding: 1rem;
+    margin-top: 2rem;
 }
 
 .winner {
@@ -22,4 +34,40 @@ html {
 .loser {
     background-color: red;
     color: white;
+}
+
+.score-board {
+    margin: 2rem auto;
+    border: 1px solid lightgray;
+    width: 50%;
+    padding: 2rem;
+}
+
+.score-board span {
+    margin: 1rem;
+}
+
+button {
+    background-color:lightskyblue;
+    padding: .5rem;
+    width: 8.5rem;
+    margin: 1.5rem;
+    font-size: 1.25rem;
+}
+
+#play-again {
+    background-color: lightgreen;
+}
+
+#reset-game {
+    background-color:lightcoral;
+}
+
+.round-detail {
+    width: 50%;
+    margin: 0 auto;
+}
+
+ul li {
+    list-style-type: none;
 }
