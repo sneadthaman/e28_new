@@ -1,28 +1,45 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <nav>
+      <ul>
+        <li>
+            <router-link
+                v-for="link in links"
+                v-bind:key="link"
+                v-bind:to="paths[link]"
+                exact
+                >{{ link }}</router-link
+            >
+        </li>
+      </ul>
+    </nav>
+    <img alt="ForgetMeNot Logo" src="@/assets/images/forgetmenot-logo.png" id="logo">
+    <p>Never shop for gift cards at the last minute ever again!</p>
+<router-view></router-view>
   </div>
+  
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  data() {
+    return {
+      /* Store links in an array to maintain order */
+      links: ['home', 'holidays', 'addholiday'],
+
+      /* Map links to the appropriate component */
+      paths: {
+        home: '/',
+        holidays: '/2021holidays',
+        addholiday: '/add-holiday',
+      },
+    }
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang='scss'>
+@import '@/assets/scss/zipfoods.scss';
 </style>
