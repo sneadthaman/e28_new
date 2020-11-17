@@ -4,31 +4,51 @@
       <h2>Add a special occasion</h2>
       <form>
         <label for="name">Name of occasion</label>
-        <input type='text' id="name">
+        <input type='text' id="name" v-model="userHoliday.name">
         
         <label for="date">Date of occasion</label>
-        <input type='date' id="date">
+        <input type='date' id="date" v-model="userHoliday.date">
 
         <label for="type">Type of occasion</label>
-        <select id="type">
-          <option>Birthday</option>
-          <option>Anniversary</option>
-          <option>Religious</option>
+        <select id="type" v-model="userHoliday.type">
+          <option value="Birthday">Birthday</option>
+          <option value="Anniversary">Anniversary</option>
+          <option value="Religious">Religious</option>
         </select>
-        <button>Add a Day</button>
+        <button @click="addUserDay">Add a Day</button>
       </form>
     </div>
 </template>
 
 <script>
 
+import { axios } from '@/app.js';
+
+
 export default {
     name: 'user-dates',
     props: [''],
     data: function () {
         return {
+          errors: null,
+          userHoliday: {
+            name: 'My Birthday',
+            date: '12-01-2021',
+            type: 'Birthday'
+          }
         };
     },
+    methods: {
+      addUserDay() {
+        axios.post('/product', this.userHoliday).then((response) => {
+          if (response.data.errors) {
+          this.errors = response.data.errors;
+      } else {
+        
+    }
+});
+      }
+    }
 };
 </script>
 

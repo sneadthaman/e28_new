@@ -27,13 +27,13 @@ export default {
   data() {
     return {
       /* Store links in an array to maintain order */
-      links: ['home', 'holidays', 'addholiday'],
+      links: ['home', 'holidays', 'add holiday'],
 
       /* Map links to the appropriate component */
       paths: {
         home: '/',
         holidays: '/2021holidays',
-        addholiday: '/add-holiday',
+        'add holiday': '/add-holiday',
       },
     }
   }
