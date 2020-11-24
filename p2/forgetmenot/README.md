@@ -1,26 +1,20 @@
-# forgetmenot
+# Project 2: ForgetMeNot
 
-Production URL: http://e28p2.samjanvey.com/
+* By Sam Janvey
+* Production URL: http://e28p2.samjanvey.com/
 
-## Project setup
-```
-npm install
-```
+## Pages Summary
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+* Home
+* 2021 Holidays
+* Add a Holiday
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## SFC Summary
+Add A Holiday component let's a user add their own special occasion
 
-### Lints and fixes files
-```
-npm run lint
-```
+## Server Interaction
+* Get a list of 'Global' holidays from server
+* Add a holiday to the list of holidays
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Notes for the Instructor
+I haven't been able to implement the Add a Holiday feature yet
