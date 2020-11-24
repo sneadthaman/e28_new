@@ -1,5 +1,7 @@
 # forgetmenot
 
+Production URL: http://e28p2.samjanvey.com/
+
 ## Project setup
 ```
 npm install
