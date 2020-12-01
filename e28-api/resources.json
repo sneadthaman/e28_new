@@ -83,7 +83,6 @@
         "religious": {
             "type": "boolean",
             "validators": [
-                "required"
             ]
         },
         "date": {
@@ -93,6 +92,10 @@
             ]
         },
         "categories": {
+            "type": "string",
+            "validators": []
+        },
+        "type": {
             "type": "string",
             "validators": []
         }
