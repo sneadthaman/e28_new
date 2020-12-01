@@ -15,7 +15,7 @@
           <option value="Anniversary">Anniversary</option>
           <option value="Religious">Religious</option>
         </select>
-        <button @click="addUserDay">Add a Day</button>
+        <button @click.prevent="addUserDay">Add a Day</button>
       </form>
     </div>
 </template>
@@ -34,7 +34,8 @@ export default {
           userHoliday: {
             name: '',
             date: '',
-            type: ''
+            type: '',
+            religious: false
           }
         };
     },
