@@ -1,5 +1,8 @@
 # forgetmenot
 
+# An App that reminds users when to shop for gift cards and gifts
+
+
 ## Project setup
 ```
 npm install

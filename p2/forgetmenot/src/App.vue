@@ -15,17 +15,22 @@
     </nav>
     <img alt="ForgetMeNot Logo" src="@/assets/images/forgetmenot-logo.png" id="logo">
     <p>Never shop for gift cards at the last minute ever again!</p>
-<router-view></router-view>
+<router-view
+  v-bind:holidays = "holidays"
+  v-on:update-holidays = "updateHolidays()">
+</router-view>
   </div>
   
 </template>
 
 <script>
+import { axios } from "@/app.js";
 
 export default {
   name: 'App',
   data() {
     return {
+      holidays: [],
       /* Store links in an array to maintain order */
       links: ['home', 'holidays', 'add holiday'],
 
@@ -34,9 +39,20 @@ export default {
         home: '/',
         holidays: '/2021holidays',
         'add holiday': '/add-holiday',
-      },
+      }
+    };
+  },
+  methods: {
+    updateHolidays() {
+      axios.get("/holidays").then((response) => {
+        this.holidays = response.data.holidays;
+      });
     }
+  },
+  mounted() {
+    this.updateHolidays();
   }
+
 }
 </script>
 

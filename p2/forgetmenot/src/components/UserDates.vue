@@ -32,24 +32,26 @@ export default {
         return {
           errors: null,
           userHoliday: {
-            name: 'My Birthday',
-            date: '12-01-2021',
-            type: 'Birthday'
+            name: '',
+            date: '',
+            type: ''
           }
         };
     },
     methods: {
       addUserDay() {
-        axios.post('/product', this.userHoliday).then((response) => {
+        axios.post('/holidays', this.userHoliday).then((response) => {
           if (response.data.errors) {
           this.errors = response.data.errors;
-      } else {
-        
-    }
-});
-      }
+          } else {
+          //this.$emit('update-holidays');
+          console.log(response.data)
+          }
+        }
+        )}
     }
 };
+
 </script>
 
 <style>
