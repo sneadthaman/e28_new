@@ -1,5 +1,6 @@
-# forgetmenot
+# Project 2: ForgetMeNot
 
+<<<<<<< HEAD
 # An App that reminds users when to shop for gift cards and gifts
 
 
@@ -7,21 +8,23 @@
 ```
 npm install
 ```
+=======
+* By Sam Janvey
+* Production URL: http://e28p2.samjanvey.com/
+>>>>>>> bca00f8f2469562439bf38653ffc33f92c4bd3a3
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Pages Summary
 
-### Compiles and minifies for production
-```
-npm run build
-```
+* Home
+* 2021 Holidays
+* Add a Holiday
 
-### Lints and fixes files
-```
-npm run lint
-```
+## SFC Summary
+Add A Holiday component let's a user add their own special occasion
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Server Interaction
+* Get a list of 'Global' holidays from server
+* Add a holiday to the list of holidays
+
+## Notes for the Instructor
+I haven't been able to implement the Add a Holiday feature yet
