@@ -45,10 +45,11 @@ export default {
           if (response.data.errors) {
           this.errors = response.data.errors;
           } else {
-          //this.$emit('update-holidays');
+          this.$emit('update-holidays');
           console.log(response.data)
           }
-        }
+        },
+        this.$store.commit('addHoliday', this.userHoliday)
         )}
     }
 };

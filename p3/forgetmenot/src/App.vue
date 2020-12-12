@@ -24,7 +24,6 @@
 </template>
 
 <script>
-import { axios } from "@/app.js";
 
 export default {
   name: 'App',
@@ -42,15 +41,8 @@ export default {
       }
     };
   },
-  methods: {
-    updateHolidays() {
-      axios.get("/holidays").then((response) => {
-        this.holidays = response.data.holidays;
-      });
-    }
-  },
   mounted() {
-    this.updateHolidays();
+    this.$store.dispatch('fetchHolidays');
   }
 
 }
