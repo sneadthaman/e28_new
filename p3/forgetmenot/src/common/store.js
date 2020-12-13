@@ -22,5 +22,14 @@ export default new Vuex.Store({
                 context.commit('addHoliday', response.data.holidays);
             });
         }
+    },
+    getters: {
+        getHolidayById(state) {
+            return function (id) {
+                return state.holidays.filter((holiday) => {
+                    return holiday.id == id;
+                }, this.id)[0];
+            }
+        }
     }
 })

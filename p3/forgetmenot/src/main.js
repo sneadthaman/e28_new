@@ -8,6 +8,8 @@ Vue.use(VueRouter);
 import HomePage from '@/components/pages/HomePage.vue';
 import HolidaysPage from '@/components/pages/2021HolidaysPage.vue';
 import AddHolidayPage from '@/components/pages/AddHolidayPage.vue';
+import AccountPage from '@/components/pages/AccountPage.vue';
+
 
 
 const router = new VueRouter({
@@ -15,6 +17,7 @@ const router = new VueRouter({
       { path: '/', component: HomePage },
       { path: '/2021holidays', component: HolidaysPage },
       { path: '/add-holiday', component: AddHolidayPage },
+      { path: '/account', component: AccountPage },
   ],
   mode: 'history',
 })

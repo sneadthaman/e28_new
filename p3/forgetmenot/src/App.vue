@@ -31,13 +31,14 @@ export default {
     return {
       holidays: [],
       /* Store links in an array to maintain order */
-      links: ['home', 'holidays', 'add holiday'],
+      links: ['home', 'holidays', 'add holiday', 'account'],
 
       /* Map links to the appropriate component */
       paths: {
         home: '/',
         holidays: '/2021holidays',
         'add holiday': '/add-holiday',
+        account: '/account'
       }
     };
   },
