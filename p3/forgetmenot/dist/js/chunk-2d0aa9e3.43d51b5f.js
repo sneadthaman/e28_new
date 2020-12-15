@@ -1,2 +1,0 @@
-(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-2d0aa9e3"],{"127c":function(t,e,n){"use strict";n.r(e);var a=function(){var t=this,e=t.$createElement;t._self._c;return t._m(0)},c=[function(){var t=this,e=t.$createElement,n=t._self._c||e;return n("div",[n("h1",[t._v("You must be logged in to add a holiday")]),n("a",{attrs:{href:"/account"}},[t._v("Log in")])])}],o={data:function(){return{}},methods:{}},r=o,u=n("2877"),i=Object(u["a"])(r,a,c,!1,null,"1fb521f5",null);e["default"]=i.exports}}]);
-//# sourceMappingURL=chunk-2d0aa9e3.43d51b5f.js.map

@@ -2,14 +2,17 @@
 <template>
     <div id="user-form">
       <h2>Add a special occasion</h2>
+      <small class="form-help">* Required field</small>
       <form>
-        <label for="name">Name of occasion</label>
+        <label for="name">*Name of occasion</label>
         <input data-test="name" type='text' id="name" v-model="userHoliday.name" @blur="validate()" required>
+        <small class="form-help">Min: 3, Max: 50</small>
+        <error-field v-if="errors && 'name' in errors" :errors="errors.name"></error-field>
         
-        <label for="date">Date of occasion</label>
+        <label for="date">*Date of occasion</label>
         <input data-test="date" type='date' id="date" v-model="userHoliday.date" required>
 
-        <label for="type">Type of occasion</label>
+        <label for="type">*Type of occasion</label>
         <select data-test="type" id="type" v-model="userHoliday.type">
           <option value="Birthday" selected>Birthday</option>
           <option value="Anniversary">Anniversary</option>
@@ -17,16 +20,30 @@
         </select>
         <button data-test="holiday-button" @click.prevent="addUserDay">Add a Day</button>
       </form>
+
+      <transition name="fade">
+            <div
+                class="alert"
+                v-if="showConfirmationMessage"
+            >
+                Your product
+                <em>{{ addedName }}</em> was added!
+            </div>
+        </transition>
     </div>
 </template>
 
 <script>
 
 import { axios } from '@/app.js';
+import ErrorField from '@/components/ErrorField.vue';
 import Validator from 'validatorjs';
 
 export default {
     name: 'user-dates',
+    components: {
+      'error-field': ErrorField,
+    },
     props: [''],
     data: function () {
         return {
@@ -36,7 +53,8 @@ export default {
             date: '',
             type: '',
             religious: false
-          }
+          },
+          showConfirmationMessage: false,
         };
     },
     methods: {
@@ -45,9 +63,22 @@ export default {
           if (response.data.errors) {
             this.errors = response.data.errors;
           } else {
-            //this.$emit('update-holidays');
             console.log(response.data)
             this.$store.commit('addHoliday', this.userHoliday)
+
+            this.showConfirmationMessage = true;
+            this.addedName = this.userHoliday.name;
+
+            setTimeout(
+              () => (this.showConfirmationMessage = false),
+              3000
+            );
+
+            this.userHoliday = {
+              name: '',
+              date: '',
+              type: ''
+            }
           }
         },
         )},
