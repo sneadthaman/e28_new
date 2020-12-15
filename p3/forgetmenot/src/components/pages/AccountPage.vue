@@ -19,15 +19,15 @@
         <div v-else id="loginForm">
             <h2>Login</h2>
             <div>
-                <label>Email: <input type="text" v-model="data.email" /></label>
+                <label>Email: <input data-test="email-input" type="text" v-model="data.email" /></label>
             </div>
             <div>
                 <label
-                    >Password: <input type="password" v-model="data.password"
+                    >Password: <input data-test="password-input" type="password" v-model="data.password"
                 /></label>
             </div>
 
-            <button @click="login">Login</button>
+            <button data-test="login-button" @click="login">Login</button>
 
             <ul v-if="errors">
                 <li class="error" v-for="(error, index) in errors" :key="index">

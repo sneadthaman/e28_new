@@ -4,18 +4,18 @@
       <h2>Add a special occasion</h2>
       <form>
         <label for="name">Name of occasion</label>
-        <input type='text' id="name" v-model="userHoliday.name" @blur="validate()" required>
+        <input data-test="name" type='text' id="name" v-model="userHoliday.name" @blur="validate()" required>
         
         <label for="date">Date of occasion</label>
-        <input type='date' id="date" v-model="userHoliday.date" required>
+        <input data-test="date" type='date' id="date" v-model="userHoliday.date" required>
 
         <label for="type">Type of occasion</label>
-        <select id="type" v-model="userHoliday.type">
-          <option value="Birthday">Birthday</option>
+        <select data-test="type" id="type" v-model="userHoliday.type">
+          <option value="Birthday" selected>Birthday</option>
           <option value="Anniversary">Anniversary</option>
           <option value="Religious">Religious</option>
         </select>
-        <button @click.prevent="addUserDay">Add a Day</button>
+        <button data-test="holiday-button" @click.prevent="addUserDay">Add a Day</button>
       </form>
     </div>
 </template>
@@ -47,9 +47,9 @@ export default {
           } else {
             //this.$emit('update-holidays');
             console.log(response.data)
+            this.$store.commit('addHoliday', this.userHoliday)
           }
         },
-        this.$store.commit('addHoliday', this.userHoliday)
         )},
 
       // Additional form validation with validatorjs  
@@ -61,7 +61,7 @@ export default {
         if (validator.fails()) {
           this.errors = validator.errors.all();
         } else {
-            this.errors = null;
+          this.errors = null;
         }
 
         return validator.passes();

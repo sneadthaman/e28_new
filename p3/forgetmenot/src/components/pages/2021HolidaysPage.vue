@@ -30,6 +30,7 @@ export default{
   },
   methods:{
     removeHoliday(id) {
+      // Currently not working!
       // Found solution at https://stackoverflow.com/questions/51069552/axios-delete-request-with-body-and-headers
       axios.delete('/holidays/' + id, { data: id }).then(
         this.$store.commit.removeHoliday(id)

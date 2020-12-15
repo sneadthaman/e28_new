@@ -10,6 +10,7 @@ export default new Vuex.Store({
         userHolidayCount: 0,
         holidays: [],
         user: null,
+        users: []
     },
     mutations: {
         addHoliday(state, payload) {
@@ -22,6 +23,9 @@ export default new Vuex.Store({
         removeHoliday(state, payload) {
             state.holidays.splice((payload - 1), 1);
             state.userHolidayCount = state.holidays.length;
+        },
+        addUser(state, payload) {
+            state.users.push(payload);
         }
     },
     actions: {

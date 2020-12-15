@@ -18,6 +18,10 @@ const routes = [
         component: () => import('@/components/pages/AccountPage.vue'),
     },
     {
+        path: '/register',
+        component: () => import('@/components/pages/RegisterPage.vue'),
+    },
+    {
         path: '/add-holiday',
         component: () => import('@/components/pages/AddHolidayPage.vue'),
         // Note the addition of this meta attribute:
