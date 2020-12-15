@@ -43,6 +43,9 @@ Add A Holiday component let's a user add their own special occasion
 ## Issues during testing
 * API calls during 'add holiday' tests were returning 404 on some occassions, but not all. 
 
+## Deployment
+Project 3 is being deployed on Netlify and all changes to git are being tracked in real-time for automated updates. Site is also utilizing HTTPS.
+
 ## Outside Resources
 Although the 'remove' button is not functional yet, I did look at some code from a stack overflow article on how to properly do an axios.delete action
 https://stackoverflow.com/questions/51069552/axios-delete-request-with-body-and-headers
