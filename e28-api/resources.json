@@ -99,5 +99,21 @@
             "type": "string",
             "validators": []
         }
+    },
+    "userHolidays": {
+        "holiday_id": {
+            "type": "integer",
+            "validators": [
+                "required",
+                "numeric"
+            ]
+        },
+        "user_id": {
+            "type": "integer",
+            "validators": [
+                "required",
+                "numeric"
+            ]
+        }
     }
 }

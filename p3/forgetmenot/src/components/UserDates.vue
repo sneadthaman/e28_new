@@ -4,10 +4,10 @@
       <h2>Add a special occasion</h2>
       <form>
         <label for="name">Name of occasion</label>
-        <input type='text' id="name" v-model="userHoliday.name">
+        <input type='text' id="name" v-model="userHoliday.name" @blur="validate()" required>
         
         <label for="date">Date of occasion</label>
-        <input type='date' id="date" v-model="userHoliday.date">
+        <input type='date' id="date" v-model="userHoliday.date" required>
 
         <label for="type">Type of occasion</label>
         <select id="type" v-model="userHoliday.type">
@@ -50,7 +50,22 @@ export default {
           }
         },
         this.$store.commit('addHoliday', this.userHoliday)
-        )}
+        )},
+
+      // Additional form validation with validatorjs  
+      validate() {
+        let validator = new Validator(this.userHoliday, {
+          name: 'required|between:3,50',
+        });
+
+        if (validator.fails()) {
+          this.errors = validator.errors.all();
+        } else {
+            this.errors = null;
+        }
+
+        return validator.passes();
+      },
     }
 };
 

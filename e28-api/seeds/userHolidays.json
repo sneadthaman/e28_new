@@ -1,6 +1,7 @@
 {
     "seeds": [
         {
+            "user_id": 1,
             "name": "New Years",
             "religious": false,
             "date": "01-01-2021",
