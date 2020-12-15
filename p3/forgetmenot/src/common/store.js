@@ -13,12 +13,16 @@ export default new Vuex.Store({
     },
     mutations: {
         addHoliday(state, payload) {
-            state.holidays = payload;
+            state.holidays.push(payload);
             state.userHolidayCount = state.holidays.length;
         },
         setUser(state, payload) {
             state.user = payload;
         },
+        removeHoliday(state, payload) {
+            state.holidays.splice((payload - 1), 1);
+            state.userHolidayCount = state.holidays.length;
+        }
     },
     actions: {
         fetchHolidays(context) {

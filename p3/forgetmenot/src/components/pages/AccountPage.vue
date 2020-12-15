@@ -18,10 +18,6 @@
 
         <div v-else id="loginForm">
             <h2>Login</h2>
-            <small
-                >(Form is prefilled for demonstration purposes; remove in final
-                application)</small
-            >
             <div>
                 <label>Email: <input type="text" v-model="data.email" /></label>
             </div>
@@ -84,27 +80,6 @@ export default{
             });
         },
     },
-    watch: {
-        user() {
-            if (this.user) {
-                this.holidays = [];
-
-                axios
-                    .get('holiday/query', {
-                        params: { user_id: this.user.id },
-                    })
-                    .then((response) => {
-                        this.holidays = response.data.results.map(
-                            (holiday) => {
-                                return this.$store.getters.getHolidayById(
-                                    holiday.holiday_id
-                                );
-                            }
-                        );
-                    });
-            }
-        },
-    }
 }
 </script>
 

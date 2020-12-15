@@ -23,7 +23,7 @@
 <script>
 
 import { axios } from '@/app.js';
-
+import Validator from 'validatorjs';
 
 export default {
     name: 'user-dates',
@@ -43,10 +43,10 @@ export default {
       addUserDay() {
         axios.post('/holidays', this.userHoliday).then((response) => {
           if (response.data.errors) {
-          this.errors = response.data.errors;
+            this.errors = response.data.errors;
           } else {
-          this.$emit('update-holidays');
-          console.log(response.data)
+            //this.$emit('update-holidays');
+            console.log(response.data)
           }
         },
         this.$store.commit('addHoliday', this.userHoliday)

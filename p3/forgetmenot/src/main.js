@@ -1,26 +1,10 @@
 import Vue from 'vue'
 import App from './App.vue'
 import VueRouter from 'vue-router';
-import store from '@/common/store'
+import router from '@/common/router.js';
+import store from '@/common/store.js'; 
 
 Vue.use(VueRouter);
-
-import HomePage from '@/components/pages/HomePage.vue';
-import HolidaysPage from '@/components/pages/2021HolidaysPage.vue';
-import AddHolidayPage from '@/components/pages/AddHolidayPage.vue';
-import AccountPage from '@/components/pages/AccountPage.vue';
-
-
-
-const router = new VueRouter({
-  routes: [
-      { path: '/', component: HomePage },
-      { path: '/2021holidays', component: HolidaysPage },
-      { path: '/add-holiday', component: AddHolidayPage },
-      { path: '/account', component: AccountPage },
-  ],
-  mode: 'history',
-})
 
 Vue.config.productionTip = false
 
